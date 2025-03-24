@@ -24,6 +24,24 @@ const client = new MongoClient(uri, {
 
         const database = client.db('SportsDB');
         const sportsCollection = database.collection('sports');
+        const userCollection=client.db('SportsDB').collection('users')
+        app.post('/users', async (req, res) => {
+            const newUsers = req.body;
+            console.log('Adding new Users', newUsers);
+            const result = await userCollection.insertOne(newUsers);
+            res.send(result);
+        });
+
+
+
+
+
+
+
+
+
+
+
          app.get('/sports',async(req,res)=>{
             const cursor=sportsCollection.find();
             const result=await cursor.toArray();
