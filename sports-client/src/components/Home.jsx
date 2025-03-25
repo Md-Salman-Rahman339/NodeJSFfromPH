@@ -8,7 +8,7 @@ const Home = () => {
     
     console.log(items)
   return (
-   <div>
+   <div className='bottom-'>
       <Banner></Banner>
 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8  '>
       {
