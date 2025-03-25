@@ -5,6 +5,7 @@ import Banner from './Banner';
 
 const Home = () => {
     const items=useLoaderData();
+    
     console.log(items)
   return (
    <div>

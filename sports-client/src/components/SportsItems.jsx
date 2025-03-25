@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Swal from 'sweetalert2';
+import { AuthContext } from '../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const SportsItems = ({item}) => {
+    const {user}=useContext(AuthContext)
     const {_id,name,category,description,price,customization,photo}=item;
 
     const handleDelete=_id=>{
@@ -43,7 +46,13 @@ const SportsItems = ({item}) => {
     <div className="card-body">
       <h2 className="card-title">
        Name:{name}
+       {user && user?.email &&(
+      <>
         <a onClick={()=>handleDelete(_id)} className="badge badge-secondary btn btn-sm">X</a>
+        <Link to={user && user.email? `/details/${item._id}`:""}><a className='btn btn-dash'> View details</a></Link>
+        <Link to={`/updateEquipment/${_id}`}><a href="">Edit</a></Link>
+        </>
+       )}
       </h2>
       <p> {description.split(" ").slice(0, 10).join(" ")}...</p>
       <div className="card-actions justify-end">

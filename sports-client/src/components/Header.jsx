@@ -39,9 +39,12 @@ const Header = () => {
     <div className="navbar-end">
     {user && user?.email?(
      
+   <>
+   <Link to='/user'>DashBoard</Link>
      <button onClick={logOut} className="btn btn-neutral rounded-none">
      Log-Out
    </button>
+   </>
    ):(
      <Link to="/signIn" className="btn btn-neutral rounded-none">
             Login

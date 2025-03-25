@@ -32,8 +32,9 @@ const router = createBrowserRouter([
         element:<AddSportsItem></AddSportsItem>
       },
       {
-        path:'updateEquipment',
-        element:<UpdateEquipment></UpdateEquipment>
+        path:'updateEquipment/:id',
+        element:<UpdateEquipment></UpdateEquipment>,
+        loader:({params})=>fetch(`http://localhost:5000/sports/${params.id}`)
       },
       {
         path:'allsportsitem',
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
 
       },
       {
-       path:'/user',
+       path:'user',
        element: <Dashboard></Dashboard>,
        loader:()=>fetch('http://localhost:5000/users')
       }

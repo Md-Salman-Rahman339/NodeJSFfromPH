@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import LottieAnimation from "./LottieAnimation";
 
 const SignUp = () => {
     const { createNewUser } = useContext(AuthContext);
@@ -58,7 +59,7 @@ const SignUp = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Sign Up now!</h1>
-          <p className="py-6">Agree to become involved in an organized activity.</p>
+         <LottieAnimation></LottieAnimation>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleSignUp} className="card-body">

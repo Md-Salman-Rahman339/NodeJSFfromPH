@@ -5,6 +5,8 @@ import { AuthContext } from '../providers/AuthProvider';
 const AllSportsItem = () => {
     const {user}=useContext(AuthContext)
     const items=useLoaderData();
+    const sortedItems = [...items].sort((a, b) => a.price - b.price);
+
   return (
     <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 w-4xl">
     <table className="table">
@@ -20,7 +22,7 @@ const AllSportsItem = () => {
         {/* row 1 */}
        
         {
-            items.map(item=><tr key={item._id}>
+            sortedItems.map(item=><tr key={item._id}>
                 <th>{item.name}</th>
                 <td>{item.category}</td>
                 <td>{item.price}</td>

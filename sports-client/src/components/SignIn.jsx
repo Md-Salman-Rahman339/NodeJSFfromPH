@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Awesome from './Awesome';
 
 
 const SignIn = () => {
@@ -29,9 +30,10 @@ const SignIn = () => {
     return (
       <div className="min-h-screen flex justify-center items-center">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
-          <h2 className="text-2xl font-semibold text-center">
+          {/* <h2 className="text-2xl font-semibold text-center">
             Login your account
-          </h2>
+          </h2> */}
+          <Awesome></Awesome>
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
