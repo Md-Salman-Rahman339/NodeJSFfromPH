@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
+import { AuthContext } from '../providers/AuthProvider';
 
 const AllSportsItem = () => {
-
+    const {user}=useContext(AuthContext)
     const items=useLoaderData();
   return (
     <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 w-4xl">
@@ -23,7 +24,8 @@ const AllSportsItem = () => {
                 <th>{item.name}</th>
                 <td>{item.category}</td>
                 <td>{item.price}</td>
-                <Link to={`/details/${item._id}`}><a className='btn btn-dash'> View details</a></Link>
+                
+                <Link to={user && user.email? `/details/${item._id}`:""}><a className='btn btn-dash'> View details</a></Link>
                 
               </tr>)
         }

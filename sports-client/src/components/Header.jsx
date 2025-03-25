@@ -6,7 +6,12 @@ const Header = () => {
     const {user,logOut}=useContext(AuthContext)
     const links=<>
     <li><NavLink to='/'>Home</NavLink></li>
-       <li><NavLink to='/addSports'>Add Sports Item</NavLink></li>
+    {user && user?.email &&(
+       <>
+        <li><NavLink to='/addSports'>Add Sports Item</NavLink></li>
+        <li><NavLink to='/'>My Equipments</NavLink></li>
+       </>
+    )}
        <li><NavLink to='/allsportsitem'>All Sports Equipment</NavLink></li>
        {/* <li><NavLink to='/signIn'>Sign In</NavLink></li> */}
        {/* <li><NavLink to='/users'>Users</NavLink></li> */}
